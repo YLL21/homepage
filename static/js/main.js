@@ -56,7 +56,7 @@ function Init(feedType, feedPath, bgArr, senArr) {
     feed.addEventListener("load", function () {
         qSlt(".article-container").classList.add("loaded");
         if (feed.status !== 200) {
-            setArtTip('<i class="fa fa-warning"></i><p class="article-empty-tip">暂时无法连接到博客</p>');
+            setArtTip('<i class="fa fa-warning"></i><p class="article-empty-tip">已更换博客程序，无法再获取文章。</p>');
             return;
         }
         try {
@@ -95,7 +95,7 @@ function Init(feedType, feedPath, bgArr, senArr) {
                 }
             }
         } catch (e) {
-            setArtTip('<i class="fa fa-warning"></i><p class="article-empty-tip">暂时无法连接到博客</p>');
+            setArtTip('<i class="fa fa-warning"></i><p class="article-empty-tip">已更换博客程序，无法再获取文章。</p>');
             return;
         }
         data.length === 0 ? setArtTip('<i class="fa fa-inbox"></i><p class="article-empty-tip">暂时没有文章</p>') : articleOutput(data);
@@ -103,7 +103,7 @@ function Init(feedType, feedPath, bgArr, senArr) {
     });
     feed.addEventListener("error", function () {
         qSlt(".article-container").classList.add("loaded");
-        setArtTip('<i class="fa fa-warning"></i><p class="article-empty-tip">暂时无法连接到博客</p>');
+        setArtTip('<i class="fa fa-warning"></i><p class="article-empty-tip">已更换博客程序，无法再获取文章。</p>');
     });
     feed.send();
     var sBg = bgArr[Math.floor(Math.random() * bgArr.length)];
